@@ -24,7 +24,7 @@ export default function ExpenseItem({
 
   const handleDelete = async (expenseId: String) => {
     const res = await fetch(
-      `http://localhost:49851/api/expense?id=${expenseId}`,
+      `https://expensetracker.mohazizzi.ir/api/expense?id=${expenseId}`,
       {
         method: "DELETE",
       }

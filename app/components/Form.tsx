@@ -32,21 +32,24 @@ export default function Form({
     }
 
     try {
-      const res = await fetch("http://localhost:49851/api/expense", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({
-          userName,
-          amount,
-          description,
-          type,
-          year,
-          month,
-          day,
-        }),
-      });
+      const res = await fetch(
+        "https://expensetracker.mohazizzi.ir/api/expense",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            userName,
+            amount,
+            description,
+            type,
+            year,
+            month,
+            day,
+          }),
+        }
+      );
 
       if (res.ok) {
         console.log(res.json());
