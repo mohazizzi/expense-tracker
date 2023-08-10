@@ -24,7 +24,7 @@ export default function ExpenseItem({
 
   const handleDelete = async (expenseId: String) => {
     const res = await fetch(
-      `https://expensetracker.mohazizzi.ir/api/expense?id=${expenseId}`,
+      `https://expense-tracker-mohazizzi.vercel.app/api/expense?id=${expenseId}`,
       {
         method: "DELETE",
       }

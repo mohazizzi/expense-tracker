@@ -33,7 +33,7 @@ export default function Form({
 
     try {
       const res = await fetch(
-        "https://expensetracker.mohazizzi.ir/api/expense",
+        "https://expense-tracker-mohazizzi.vercel.app/api/expense",
         {
           method: "POST",
           headers: {

@@ -6,7 +6,7 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 const getExpense = async (userName: String) => {
   try {
     const res = await fetch(
-      `https://expensetracker.mohazizzi.ir/api/expense?username=${userName}`,
+      `https://expense-tracker-mohazizzi.vercel.app/api/expense?username=${userName}`,
       {
         cache: "no-store",
       }
