@@ -12,10 +12,14 @@ module.exports = {
     extend: {
       colors: {
         main: {
-          bg: "#2d3250",
-          primary: "#f9b17a",
-          two: "#424769",
-          three: "#676f9d",
+          // bg: "#2d3250",
+          // primary: "#f9b17a",
+          // two: "#424769",
+          // three: "#676f9d",
+          bg: "#1c1d25",
+          primary: "#ffc759",
+          two: "#848fa550",
+          three: "#848fa530",
           green: "#14a44d",
           red: "#dc4c64",
         },
