@@ -29,8 +29,8 @@ export default function DashNavbar({ userName }: Props) {
           <HiMenuAlt2 />
         </button>
         <div
-          className={`fixed top-0 bottom-0 z-40 w-screen bg-main-bg ${
-            navbar ? "right-0" : "-left-full"
+          className={`fixed top-0 bottom-0 z-40 w-screen bg-main-bg transition-all ease-linear duration-300 ${
+            navbar ? "left-0" : "-left-full"
           }`}
         >
           <button

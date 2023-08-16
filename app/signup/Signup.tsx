@@ -9,6 +9,7 @@ export default function SignUp() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfigor, setPasswordConfigor] = useState("");
+  const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
 
   const router = useRouter();
@@ -20,6 +21,8 @@ export default function SignUp() {
       setErr("رمز و تکرار رمز همخوانی ندارند!");
       return;
     }
+
+    setLoading(true);
 
     try {
       await fetch("api/signup", {
@@ -34,6 +37,8 @@ export default function SignUp() {
       });
     } catch (err) {
       setErr("خطا! لطفا دوباره امتحان کنید");
+      setLoading(false);
+      return;
     }
     try {
       const res = await signIn("credentials", {
@@ -44,13 +49,17 @@ export default function SignUp() {
 
       if (res?.error) {
         setErr("رمز و یوزر اشتباه");
+        setLoading(false);
         return;
       }
 
       router.replace("dashboard");
     } catch (err) {
       setErr("خطا! لطفا دوباره امتحان کنید");
+      setLoading(false);
+      return;
     }
+    setLoading(false);
   }
 
   return (
@@ -80,7 +89,8 @@ export default function SignUp() {
           <input
             className="bg-main-primary px-8 py-3 rounded-lg text-base cursor-pointer"
             type="submit"
-            value="ثبت نام"
+            disabled={loading}
+            value={loading ? "لطفا صبر کنید..." : "ثبت نام"}
           />
           <p className="text-xs">
             حساب کاربری دارید؟{" "}

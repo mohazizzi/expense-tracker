@@ -88,7 +88,7 @@ export default function Graph({ expenses, setFilter }: Props) {
       ],
     },
     options: {
-      cutout: 115,
+      cutout: 110,
     },
   };
 
@@ -103,7 +103,7 @@ export default function Graph({ expenses, setFilter }: Props) {
           <form className="flex items-center gap-2 text-xs">
             <h3>فیلتر براساس:</h3>
             <select
-              className="bg-transparent text-main-primary"
+              className="bg-transparent text-main-primary cursor-pointer"
               onChange={(e) => setFilter(e.target.value)}
             >
               <option value="month">ماه جاری</option>

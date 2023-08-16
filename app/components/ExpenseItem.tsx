@@ -38,12 +38,12 @@ export default function ExpenseItem({
   return (
     <div>
       <div
-        className={`w-full flex items-center justify-between bg-main-two px-3 py-2 border-l-4 ${borderClass}`}
+        className={`text-md w-full flex items-center justify-between bg-main-two px-3 py-2 border-l-4 ${borderClass}`}
       >
         <div className="flex items-center gap-2">
           <button
             onClick={() => handleDelete(expense._id)}
-            className="text-xs w-6 h-6 rounded-full bg-main-bg flex items-center justify-center"
+            className="w-8 h-8 rounded-full bg-main-bg flex items-center justify-center"
           >
             <TbTrashXFilled />
           </button>

@@ -4,9 +4,9 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
 
-  if (session) redirect("/dashboard");
+  // if (session) redirect("/dashboard");
 
   return (
     <main className="h-screen flex flex-col gap-2 justify-center items-center font-sansmed">

@@ -21,6 +21,7 @@ export default function Form({
   const [month, setMonth] = useState<number | null>(null);
   const [day, setDay] = useState<number | null>(null);
   const [err, setErr] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const addExpense = async (e: any) => {
@@ -30,6 +31,8 @@ export default function Form({
       setErr("تمام فیلدها را پر کنید!");
       return;
     }
+
+    setLoading(true);
 
     try {
       const res = await fetch(
@@ -52,7 +55,7 @@ export default function Form({
       );
 
       if (res.ok) {
-        console.log(res.json());
+        setLoading(false);
         setAmount(null);
         setDescription("");
         setType("");
@@ -63,10 +66,15 @@ export default function Form({
         router.refresh();
       } else {
         setErr("خطا! لطفا دوباره امتحان کنید");
+        setLoading(false);
+        return;
       }
     } catch (err) {
       setErr("خطا! لطفا دوباره امتحان کنید");
+      setLoading(false);
+      return;
     }
+    setLoading(false);
   };
 
   return (
@@ -144,7 +152,8 @@ export default function Form({
         {err !== "" && <p className="text-xs text-main-red">{err}</p>}
         <input
           type="submit"
-          value="افزودن"
+          disabled={loading}
+          value={loading ? "لطفا صبر کنید..." : "افزودن"}
           className="bg-main-primary px-8 py-3 rounded-lg text-base cursor-pointer  w-full"
         />
       </form>

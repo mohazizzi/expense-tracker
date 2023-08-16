@@ -8,12 +8,16 @@ import { useRouter } from "next/navigation";
 export default function SignIn() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
 
   const router = useRouter();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    setLoading(true);
+
     try {
       const res = await signIn("credentials", {
         userName,
@@ -23,13 +27,18 @@ export default function SignIn() {
 
       if (res?.error) {
         setErr("رمز و یوزر اشتباه");
+        setLoading(false);
         return;
       }
 
       router.replace("dashboard");
     } catch (err) {
       setErr("خطا! لطفا دوباره امتحان کنید");
+      setLoading(false);
+      return;
     }
+
+    setLoading(false);
   };
 
   return (
@@ -53,7 +62,8 @@ export default function SignIn() {
           <input
             className="bg-main-primary px-8 py-3 rounded-lg text-base cursor-pointer"
             type="submit"
-            value="ورود"
+            disabled={loading}
+            value={loading ? "لطفا صبر کنید..." : "ورود"}
           />
           <p className="text-xs">
             حساب کاربری ندارید؟{" "}
