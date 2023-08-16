@@ -19,6 +19,9 @@ const fontIranSansLight = localFont({
 export const metadata: Metadata = {
   title: "مدیریت مالی",
   description: "وبسایت فول استک با nextjs و mongoDB",
+  manifest: "/manifest.json",
+  icons: { apple: "/icon-512x512.png" },
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
